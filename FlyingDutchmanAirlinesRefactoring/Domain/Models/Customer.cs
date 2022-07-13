@@ -2,8 +2,14 @@
 
 namespace FlyingDutchmanAirlinesRefactoring.Domain.Models
 {
-    public class Customer : BaseEntity<int>
+    public sealed class Customer : BaseEntity<int>
     {
+        public Customer(string name)
+        {
+            Bookings = new HashSet<Booking>();
+            Name = name;
+        }
+
         public string Name { get; set; }
 
 

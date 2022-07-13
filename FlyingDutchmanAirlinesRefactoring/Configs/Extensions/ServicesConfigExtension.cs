@@ -1,5 +1,7 @@
 ﻿using FlyingDutchmanAirlinesRefactoring.DataAccess.Context;
 using FlyingDutchmanAirlinesRefactoring.DataAccess.Context.Extensions;
+using FlyingDutchmanAirlinesRefactoring.Repositories.Extensions;
+using FlyingDutchmanAirlinesRefactoring.Services.Extensions;
 using Microsoft.EntityFrameworkCore;
 using System.Configuration;
 
@@ -13,6 +15,8 @@ namespace FlyingDutchmanAirlinesRefactoring.Configs.Extensions
             services.AddEndpointsApiExplorer();
             services.AddSwaggerGen();
             services.AddFlyingDutchManDbContext(configuration.GetConnectionString("FlyingDutchmanDBConnectionString"));
+            services.AddApplicationServices();
+            services.AddApplicationRepositories();
             return services;
         }
 

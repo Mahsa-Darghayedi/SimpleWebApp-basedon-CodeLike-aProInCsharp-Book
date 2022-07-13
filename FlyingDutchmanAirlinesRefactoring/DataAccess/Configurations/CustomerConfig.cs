@@ -16,9 +16,8 @@ namespace FlyingDutchmanAirlinesRefactoring.DataAccess.Configurations
 
             builder.Property(customer=> customer.Name).HasColumnName("Name")
                 .HasMaxLength(50)
-                .IsRequired();
-
-
+                .IsRequired();       
+            
             builder.HasMany(customer => customer.Bookings)
                 .WithOne(booking => booking.Customer)
                 .HasForeignKey(booking => booking.CustomerID);
